@@ -10,5 +10,5 @@ cd dist
 git init
 git add -A
 git commit -m 'deploy'
-git push -f git@github.com:AldoRayne/vue-typescript-learn.git main:gh-pages
+git push -f git@github.com:AldoRayne/vue-typescript-learn.git master:gh-pages
 cd -
