@@ -26,4 +26,9 @@ const router = createRouter({
   routes,
 });
 
+router.beforeEach(async (to, from, next) => {
+  if (to.path === "/") next({ name: "Home" });
+  next();
+});
+
 export default router;
