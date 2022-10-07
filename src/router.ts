@@ -5,7 +5,7 @@ const Rent = () => import("@/pages/RentPage.vue");
 
 const routes = [
   {
-    path: "/home",
+    path: "/vue-typescript-learn",
     name: "Home",
     component: Home,
   },
