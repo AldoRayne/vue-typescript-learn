@@ -42,5 +42,5 @@ export interface Rents {
   total: string;
   per_page: number;
   current_page: number;
-  items: RentItem[];
+  items: readonly RentItem[];
 }

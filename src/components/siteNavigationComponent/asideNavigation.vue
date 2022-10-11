@@ -51,9 +51,6 @@
                   <router-link to="/sale" class="sub-menu__item">
                     Продажа
                   </router-link>
-                  <li class="sub-menu__item">Посуточно</li>
-                  <li class="sub-menu__item">Сниму</li>
-                  <li class="sub-menu__item">Куплю</li>
                 </ul>
               </template>
             </vue-collapsible-panel>
@@ -202,6 +199,7 @@ aside {
     font-size: 14px;
     text-decoration: none;
 
+    &.router-link-active,
     &:hover {
       color: #000;
     }
