@@ -1,9 +1,11 @@
 import { createWebHistory, createRouter } from "vue-router";
 
+import RouteItem from "@/types/routeItem";
+
 const Home = () => import("@/pages/HomePage.vue");
 const Rent = () => import("@/pages/RentPage.vue");
 
-const routes = [
+const routes: RouteItem[] = [
   {
     path: "/vue-typescript-learn",
     name: "Home",

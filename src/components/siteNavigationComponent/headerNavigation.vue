@@ -2,14 +2,18 @@
   <header>
     <div :class="{ collapsed }" class="logo">
       <Transition name="fade">
-        <div v-if="!collapsed" class="logo__text">
+        <router-link
+          v-if="!collapsed"
+          :to="{ name: 'Home' }"
+          class="logo__text"
+        >
           <span class="bold">База&nbsp;</span>
           <span class="thin">Лидер</span>
-        </div>
-        <div v-else class="logo__text">
+        </router-link>
+        <router-link v-else :to="{ name: 'Home' }" class="logo__text">
           <span class="bold">Б</span>
           <span class="thin">Л</span>
-        </div>
+        </router-link>
       </Transition>
     </div>
     <button @click="navigationTogglerClick" class="expand">
@@ -72,6 +76,8 @@ header {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    color: #fff;
+    text-decoration: none;
     white-space: nowrap;
   }
 }

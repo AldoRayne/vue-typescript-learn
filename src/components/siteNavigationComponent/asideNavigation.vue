@@ -45,10 +45,10 @@
               </template>
               <template #content>
                 <ul class="sub-menu">
-                  <router-link to="/rent" class="sub-menu__item">
+                  <router-link :to="{ name: 'Rent' }" class="sub-menu__item">
                     Аренда
                   </router-link>
-                  <router-link to="/sale" class="sub-menu__item">
+                  <router-link :to="{ name: 'Sale' }" class="sub-menu__item">
                     Продажа
                   </router-link>
                 </ul>

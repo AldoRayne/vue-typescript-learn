@@ -1,15 +1,15 @@
-interface allowedGetterNames {
+interface AllowedGetterNames {
   rents: string;
   sales: string;
 }
 
-interface allowedDispatchNames {
+interface AllowedDispatchNames {
   getRents: string;
   getSales: string;
 }
 
-type getterNameKeys = keyof allowedGetterNames;
-type dispatchNameKeys = keyof allowedDispatchNames;
+type getterNameKeys = keyof AllowedGetterNames;
+type dispatchNameKeys = keyof AllowedDispatchNames;
 
 export default interface StoreData {
   getterName: getterNameKeys;
