@@ -7,7 +7,7 @@ const Rent = () => import("@/pages/RentPage.vue");
 
 const routes: RouteItem[] = [
   {
-    path: "/vue-typescript-learn",
+    path: "/",
     name: "Home",
     component: Home,
   },
@@ -26,11 +26,6 @@ const routes: RouteItem[] = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
-});
-
-router.beforeEach((to, from, next) => {
-  if (to.path === "/") next({ name: "Home" });
-  next();
 });
 
 export default router;

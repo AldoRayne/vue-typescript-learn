@@ -13,7 +13,7 @@ import { useStore } from "vuex";
 import { useRoute } from "vue-router";
 
 import { Rents } from "@/types/rents";
-import StoreData from "@/types/storeData";
+import { StoreData, PayloadData } from "@/types/storeData";
 
 import isEmptyObject from "@/functions/isEmptyObject";
 
@@ -31,8 +31,16 @@ export default defineComponent({
 
     const storeData = computed<StoreData>(() => {
       return route.name === "Rent"
-        ? { getterName: "rents", dispatchName: "getRents" }
-        : { getterName: "sales", dispatchName: "getSales" };
+        ? {
+            getterName: "rents",
+            dispatchName: "getRents",
+            dispatchType: "rent",
+          }
+        : {
+            getterName: "sales",
+            dispatchName: "getSales",
+            dispatchType: "sale",
+          };
     });
 
     const rents = computed<Rents>(() => {
@@ -40,8 +48,14 @@ export default defineComponent({
     });
 
     onMounted(async () => {
-      if (isEmptyObject(rents.value))
-        await store.dispatch(storeData.value.dispatchName);
+      if (isEmptyObject(rents.value)) {
+        const payload: PayloadData = {
+          name: storeData.value.dispatchName,
+          type: storeData.value.dispatchType,
+        };
+
+        await store.dispatch("getRents", payload);
+      }
 
       loading.value = false;
     });
