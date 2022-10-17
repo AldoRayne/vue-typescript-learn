@@ -4,6 +4,7 @@
     :placeholder="placeholder"
     v-model="inputValue"
     @input="$emit('update:modelValue', $event.target.value)"
+    class="p-[5px] w-full border border-light-blue box-border"
   />
 </template>
 
@@ -30,12 +31,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped>
-input {
-  padding: 5px;
-  width: 100%;
-  border: 1px solid #3c8dbc;
-  box-sizing: border-box;
-}
-</style>

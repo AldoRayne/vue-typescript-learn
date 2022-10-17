@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.button {
+  @apply px-[12px] py-[6px] block w-max text-white no-underline text-[14px] bg-corious-blue border-0 cursor-pointer;
+}

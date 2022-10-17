@@ -1,5 +1,5 @@
 <template>
-  <td :class="{ left, wrap }">
+  <td :class="{ left, wrap }" class="p-[5px] border">
     <slot />
   </td>
 </template>
@@ -24,9 +24,6 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 td {
-  padding: 5px;
-  border: 1px solid #f4f4f4;
-
   &:not(.left) {
     text-align: center;
   }
