@@ -2,27 +2,36 @@
   <aside
     @mouseenter="navigationToggle(true)"
     @mouseleave="navigationToggle(false)"
-    :class="{ collapsed }"
+    :class="{ 'w-[49px] delay-500': collapsed }"
+    class="pt-[15px] fixed top-[50px] left-0 w-[230px] h-[calc(100%_-_50px)] bg-zinc-50 box-border overflow-y-auto transition-width ease-out duration-500"
   >
     <Transition name="slide-fade">
       <section>
-        <span class="title">Меню</span>
-        <ul class="menu">
-          <li class="menu__item">
-            <router-link to="/" class="menu__item__title">
-              <font-awesome-icon icon="fa-solid fa-house" class="icon" />
+        <span class="mx-[10px] mb-[10px] block text-slate-500 text-[12px]">
+          Меню
+        </span>
+        <ul>
+          <li class="menu-item">
+            <router-link to="/" class="menu-item-title">
+              <font-awesome-icon
+                icon="fa-solid fa-house"
+                class="menu-item-icon"
+              />
               <Transition name="fade">
-                <span v-show="!collapsed" class="menu__item__name">
+                <span v-show="!collapsed" class="menu-item-name">
                   Новости
                 </span>
               </Transition>
             </router-link>
           </li>
-          <li class="menu__item">
-            <span class="menu__item__title">
-              <font-awesome-icon icon="fa-solid fa-user" class="icon" />
+          <li class="menu-item">
+            <span class="menu-item-title">
+              <font-awesome-icon
+                icon="fa-solid fa-user"
+                class="menu-item-icon"
+              />
               <Transition name="fade">
-                <span v-show="!collapsed" class="menu__item__name">
+                <span v-show="!collapsed" class="menu-item-name">
                   Мой профиль
                 </span>
               </Transition>
@@ -30,14 +39,17 @@
           </li>
           <li
             :class="{ expanded: collapsePanel?.isExpanded }"
-            class="menu__item"
+            class="menu-item"
           >
             <vue-collapsible-panel ref="collapsePanel" :expanded="false">
               <template #title>
-                <span class="menu__item__title">
-                  <font-awesome-icon icon="fa-solid fa-database" class="icon" />
+                <span class="menu-item-title">
+                  <font-awesome-icon
+                    icon="fa-solid fa-database"
+                    class="menu-item-icon"
+                  />
                   <Transition name="fade">
-                    <span v-show="!collapsed" class="menu__item__name">
+                    <span v-show="!collapsed" class="menu-item-name">
                       База
                     </span>
                   </Transition>
@@ -107,17 +119,6 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 aside {
-  padding-top: 15px;
-  position: fixed;
-  top: 50px;
-  left: 0;
-  width: 230px;
-  height: calc(100% - 50px);
-  background: #f9fafc;
-  box-sizing: border-box;
-  overflow-y: auto;
-  transition: width 0.5s ease-out;
-
   &:deep {
     .vcp__header,
     .vcp__body-content {
@@ -130,9 +131,6 @@ aside {
   }
 
   &.collapsed {
-    width: 49px;
-    transition-delay: 0.5s;
-
     &:deep {
       .vcp__header-icon {
         opacity: 0;
@@ -143,47 +141,6 @@ aside {
         margin-left: 49px;
         transition-delay: 0.5s;
       }
-    }
-  }
-}
-
-.title {
-  margin: 0 10px 10px;
-  display: block;
-  color: #848484;
-  font-size: 12px;
-}
-
-.icon {
-  margin-right: 5px;
-  width: 20px;
-  font-size: 14px;
-  flex-shrink: 0;
-}
-
-.menu {
-  padding: 0;
-  list-style-type: none;
-
-  &__item {
-    padding: 12px 5px 12px 15px;
-    cursor: pointer;
-
-    &.expanded,
-    &:hover {
-      background: #f4f4f5;
-    }
-
-    &__title {
-      display: flex;
-      align-items: center;
-      min-height: 20px;
-      color: #000;
-      text-decoration: none;
-    }
-
-    &__name {
-      white-space: nowrap;
     }
   }
 }

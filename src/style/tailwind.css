@@ -28,4 +28,24 @@
   .sort-radio {
     @apply flex justify-center w-1/2 shrink-0;
   }
+
+  .menu-item {
+    @apply pr-[5px] pl-[15px] py-[12px] cursor-pointer hover:bg-zinc-100;
+  }
+
+  .menu-item.expanded {
+    @apply bg-zinc-100;
+  }
+
+  .menu-item-title {
+    @apply flex items-center min-h-[20px];
+  }
+
+  .menu-item-name {
+    @apply whitespace-nowrap;
+  }
+
+  .menu-item-icon {
+    @apply mr-[5px] w-[20px] text-[14px] shrink-0;
+  }
 }
