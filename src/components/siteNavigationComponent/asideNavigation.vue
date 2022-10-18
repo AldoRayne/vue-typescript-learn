@@ -142,11 +142,6 @@ export default defineComponent({
     .vcp__header-icon {
       @apply opacity-0 delay-[0];
     }
-
-    // & + .content {
-    //   margin-left: 49px;
-    //   transition-delay: 0.5s;
-    // }
   }
 }
 
