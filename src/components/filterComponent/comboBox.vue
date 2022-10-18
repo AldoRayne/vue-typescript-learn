@@ -15,12 +15,12 @@
       </li>
     </ul>
     <div class="relative pr-[20px] border border-light-blue">
-      <v-input
-        ref="searchInput"
-        noBorder
+      <input
+        type="text"
         :placeholder="placeholder"
         v-model="inputValue"
         @click="comboListShow"
+        class="text-input border-0"
       />
       <span
         v-if="chosenItems.length"
@@ -52,15 +52,9 @@ import { defineComponent, PropType, ref, computed, watch, nextTick } from "vue";
 
 import vClickOutside from "click-outside-vue3";
 
-import vInput from "@/components/ui/vInput.vue";
-
 export default defineComponent({
   directives: {
     clickOutside: vClickOutside.directive,
-  },
-
-  components: {
-    vInput,
   },
 
   props: {
@@ -80,7 +74,6 @@ export default defineComponent({
     const comboListStatus = ref(false);
     const chosenItems = ref([] as string[]);
     const comboElements = ref([] as HTMLElement[]);
-    const searchInput = ref<InstanceType<typeof vInput>>();
 
     const comboList = computed<string[]>(() =>
       props.comboItems.filter((item) => item.includes(inputValue.value))
@@ -108,8 +101,6 @@ export default defineComponent({
     }
 
     function comboboxClear(): void {
-      if (searchInput.value?.inputValue) searchInput.value.inputValue = "";
-
       inputValue.value = "";
       chosenItems.value = [];
     }
@@ -141,7 +132,6 @@ export default defineComponent({
       comboListStatus,
       chosenItems,
       comboElements,
-      searchInput,
       comboList,
       comboListShow,
       comboListHide,

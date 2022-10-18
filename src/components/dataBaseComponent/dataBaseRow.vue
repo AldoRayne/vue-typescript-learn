@@ -1,5 +1,5 @@
 <template>
-  <td class="td">
+  <td>
     {{ realIndex }}
   </td>
   <td class="td-wrap">
@@ -9,33 +9,33 @@
     <div>{{ rent.city }}</div>
     <div v-if="rent.street">{{ rent.street }}, {{ rent.house_number }}</div>
   </td>
-  <td class="td">
+  <td>
     {{ rent.layout }}
   </td>
-  <td class="td">
+  <td>
     {{ rent.rooms }}
   </td>
-  <td class="td">
+  <td>
     {{ formattedFloors }}
   </td>
-  <td class="td">
+  <td>
     {{ formattedLivingSpace }}
   </td>
-  <td class="td">
+  <td>
     {{ formattedArea }}
   </td>
-  <td class="td">
+  <td>
     {{ rent.price }}
     <template v-if="isPriceExist">{{ rent.currency }}</template>
   </td>
-  <td class="td">
+  <td>
     <a :href="`tel:${rent.phone_number}`">{{ rent.phone_number }}</a>
   </td>
-  <td v-html="formattedDate" class="td" />
-  <td class="td"></td>
-  <td class="td"></td>
-  <td class="td"></td>
-  <td class="td"></td>
+  <td v-html="formattedDate" />
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
 </template>
 
 <script lang="ts">

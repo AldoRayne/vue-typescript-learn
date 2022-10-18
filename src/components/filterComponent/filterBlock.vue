@@ -2,8 +2,8 @@
   <div class="filter">
     <slot />
     <div class="filter__actions">
-      <v-button>Применить</v-button>
-      <v-button>Очистить</v-button>
+      <button class="btn">Применить</button>
+      <button class="btn">Очистить</button>
     </div>
   </div>
 </template>
@@ -11,13 +11,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import vButton from "@/components/ui/vButton.vue";
-
 export default defineComponent({
-  components: {
-    vButton,
-  },
-
   setup() {
     return {};
   },

@@ -4,9 +4,9 @@
     <div class="w-full overflow-hidden">
       <table class="border">
         <thead>
-          <th class="th">#</th>
-          <th class="th">Адрес</th>
-          <th class="th">
+          <th>#</th>
+          <th>Адрес</th>
+          <th>
             <v-dropdown>
               <template #button-name>Тип</template>
               <template #content>
@@ -14,7 +14,7 @@
               </template>
             </v-dropdown>
           </th>
-          <th class="th">
+          <th>
             <v-dropdown>
               <template #button-name>Ком</template>
               <template #content>
@@ -22,7 +22,7 @@
               </template>
             </v-dropdown>
           </th>
-          <th class="th">
+          <th>
             <v-dropdown>
               <template #button-name>Этаж</template>
               <template #content>
@@ -30,15 +30,15 @@
               </template>
             </v-dropdown>
           </th>
-          <th class="th">Площ</th>
-          <th class="th">Уч</th>
-          <th class="th">Цена</th>
-          <th class="th">Телефон</th>
-          <th class="th">Дата</th>
-          <th class="th">Прозвон</th>
-          <th class="th">Фото</th>
-          <th class="th">Метка</th>
-          <th class="th">Доп</th>
+          <th>Площ</th>
+          <th>Уч</th>
+          <th>Цена</th>
+          <th>Телефон</th>
+          <th>Дата</th>
+          <th>Прозвон</th>
+          <th>Фото</th>
+          <th>Метка</th>
+          <th>Доп</th>
         </thead>
         <tr v-for="(rent, index) in rents.items" :key="rent.id">
           <data-base-row :rent="rent" :index="index" />

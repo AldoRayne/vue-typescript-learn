@@ -2,22 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-.th {
-  @apply p-[5px] border text-center;
+@layer base {
+  th {
+    @apply p-[5px] border text-center;
+  }
+
+  td {
+    @apply p-[5px] border text-center whitespace-nowrap;
+  }
 }
 
-.td {
-  @apply p-[5px] border text-center whitespace-nowrap;
-}
+@layer components {
+  .td-wrap {
+    @apply p-[5px] border text-left whitespace-normal;
+  }
 
-.td-wrap {
-  @apply p-[5px] border;
-}
+  .btn {
+    @apply px-[12px] py-[6px] block w-max text-white no-underline text-[14px] bg-corious-blue;
+  }
 
-.button {
-  @apply px-[12px] py-[6px] block w-max text-white no-underline text-[14px] bg-corious-blue;
-}
+  .text-input {
+    @apply p-[5px] w-full border border-light-blue box-border focus-visible:outline-0;
+  }
 
-.sort-radio {
-  @apply flex justify-center w-1/2 shrink-0;
+  .sort-radio {
+    @apply flex justify-center w-1/2 shrink-0;
+  }
 }
