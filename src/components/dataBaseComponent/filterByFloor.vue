@@ -1,41 +1,25 @@
 <template>
   <filter-block>
-    <v-row>
-      <v-col cols="col-xs-6">
-        <combo-box placeholder="Этаж от" :comboItems="floorFromComboList" />
-      </v-col>
-      <v-col cols="col-xs-6">
-        <combo-box placeholder="Этаж до" :comboItems="floorToComboList" />
-      </v-col>
-      <v-col cols="col-xs-12">
-        <sort-block name="sort-by-floor" />
-      </v-col>
-      <v-col cols="col-xs-6">
-        <combo-box placeholder="Этажей от" :comboItems="floorFromComboList" />
-      </v-col>
-      <v-col cols="col-xs-6">
-        <combo-box placeholder="Этажей до" :comboItems="floorToComboList" />
-      </v-col>
-      <v-col cols="col-xs-12">
-        <sort-block name="sort-by-floors" />
-      </v-col>
-    </v-row>
+    <div class="grid grid-cols-2 gap-[10px]">
+      <combo-box placeholder="Этаж от" :comboItems="floorFromComboList" />
+      <combo-box placeholder="Этаж до" :comboItems="floorToComboList" />
+      <sort-block name="sort-by-floor" class="col-span-2" />
+      <combo-box placeholder="Этажей от" :comboItems="floorFromComboList" />
+      <combo-box placeholder="Этажей до" :comboItems="floorToComboList" />
+      <sort-block name="sort-by-floors" class="col-span-2" />
+    </div>
   </filter-block>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import vRow from "@/components/ui/grid/vRow.vue";
-import vCol from "@/components/ui/grid/vCol.vue";
 import FilterBlock from "@/components/filterComponent/filterBlock.vue";
 import SortBlock from "@/components/filterComponent/sortBlock.vue";
 import ComboBox from "@/components/filterComponent/comboBox.vue";
 
 export default defineComponent({
   components: {
-    vRow,
-    vCol,
     FilterBlock,
     SortBlock,
     ComboBox,
