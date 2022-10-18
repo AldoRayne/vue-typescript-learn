@@ -1,47 +1,45 @@
 <template>
-  <v-table-data>
+  <td class="td">
     {{ realIndex }}
-  </v-table-data>
-  <v-table-data left wrap>
+  </td>
+  <td class="td-wrap">
     <div>
       <b>{{ rent.district }}</b>
     </div>
     <div>{{ rent.city }}</div>
     <div v-if="rent.street">{{ rent.street }}, {{ rent.house_number }}</div>
-  </v-table-data>
-  <v-table-data>
+  </td>
+  <td class="td">
     {{ rent.layout }}
-  </v-table-data>
-  <v-table-data>
+  </td>
+  <td class="td">
     {{ rent.rooms }}
-  </v-table-data>
-  <v-table-data>
+  </td>
+  <td class="td">
     {{ formattedFloors }}
-  </v-table-data>
-  <v-table-data>
+  </td>
+  <td class="td">
     {{ formattedLivingSpace }}
-  </v-table-data>
-  <v-table-data>
+  </td>
+  <td class="td">
     {{ formattedArea }}
-  </v-table-data>
-  <v-table-data>
+  </td>
+  <td class="td">
     {{ rent.price }}
     <template v-if="isPriceExist">{{ rent.currency }}</template>
-  </v-table-data>
-  <v-table-data>
+  </td>
+  <td class="td">
     <a :href="`tel:${rent.phone_number}`">{{ rent.phone_number }}</a>
-  </v-table-data>
-  <v-table-data v-html="formattedDate" />
-  <v-table-data></v-table-data>
-  <v-table-data></v-table-data>
-  <v-table-data></v-table-data>
-  <v-table-data></v-table-data>
+  </td>
+  <td v-html="formattedDate" class="td" />
+  <td class="td"></td>
+  <td class="td"></td>
+  <td class="td"></td>
+  <td class="td"></td>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType, computed } from "vue";
-
-import vTableData from "@/components/ui/vTable/vTableData.vue";
 
 import { RentItem } from "@/types/rents";
 
@@ -50,10 +48,6 @@ import emptyValueToDash from "@/functions/emptyValueToDash";
 import { format, differenceInDays } from "date-fns";
 
 export default defineComponent({
-  components: {
-    vTableData,
-  },
-
   props: {
     index: {
       type: Number,

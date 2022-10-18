@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+.th {
+  @apply p-[5px] border text-center;
+}
+
+.td {
+  @apply p-[5px] border text-center whitespace-nowrap;
+}
+
+.td-wrap {
+  @apply p-[5px] border;
+}
+
 .button {
   @apply px-[12px] py-[6px] block w-max text-white no-underline text-[14px] bg-corious-blue;
 }
