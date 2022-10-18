@@ -4,7 +4,8 @@
     :placeholder="placeholder"
     v-model="inputValue"
     @input="$emit('update:modelValue', $event.target.value)"
-    class="p-[5px] w-full border border-light-blue box-border"
+    :class="{ 'border border-light-blue': !noBorder }"
+    class="p-[5px] w-full box-border focus-visible:outline-0"
   />
 </template>
 
@@ -21,6 +22,11 @@ export default defineComponent({
     placeholder: {
       type: String,
       default: null,
+    },
+
+    noBorder: {
+      type: Boolean,
+      default: false,
     },
   },
 

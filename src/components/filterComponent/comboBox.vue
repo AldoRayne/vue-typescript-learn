@@ -14,9 +14,10 @@
         {{ item }}
       </li>
     </ul>
-    <div class="relative">
+    <div class="relative pr-[20px] border border-light-blue">
       <v-input
         ref="searchInput"
+        noBorder
         :placeholder="placeholder"
         v-model="inputValue"
         @click="comboListShow"
@@ -24,9 +25,9 @@
       <span
         v-if="chosenItems.length"
         @click="comboboxClear"
-        class="combobox__clear"
+        class="absolute top-1/2 right-[5px] translate-y-[-50%] cursor-pointer"
       >
-        <font-awesome-icon icon="fa-solid fa-xmark" class="clear-icon" />
+        <font-awesome-icon icon="fa-solid fa-xmark" />
       </span>
     </div>
     <ul
@@ -93,8 +94,8 @@ export default defineComponent({
     function chosenItemsColoring(): void {
       comboElements.value.forEach((item) => {
         item.textContent && chosenItems.value.includes(item.textContent)
-          ? item.classList.add("text-white bg-slate-300")
-          : item.classList.remove("text-white bg-slate-300");
+          ? item.classList.add("text-white", "bg-slate-400")
+          : item.classList.remove("text-white", "bg-slate-400");
       });
     }
 
@@ -151,21 +152,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style lang="scss" scoped>
-.combobox {
-  &__input-wrapper {
-    &:deep input {
-      padding-right: 20px;
-    }
-  }
-
-  .clear-icon {
-    position: absolute;
-    top: 50%;
-    right: 5px;
-    transform: translateY(-50%);
-    cursor: pointer;
-  }
-}
-</style>

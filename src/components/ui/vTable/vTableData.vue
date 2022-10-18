@@ -1,5 +1,8 @@
 <template>
-  <td :class="{ left, wrap }" class="p-[5px] border">
+  <td
+    :class="{ 'text-center': !left, 'whitespace-nowrap': !wrap }"
+    class="p-[5px] border"
+  >
     <slot />
   </td>
 </template>
@@ -21,15 +24,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style lang="scss" scoped>
-td {
-  &:not(.left) {
-    text-align: center;
-  }
-
-  &:not(.wrap) {
-    white-space: nowrap;
-  }
-}
-</style>

@@ -1,5 +1,5 @@
 <template>
-  <label class="flex items-center">
+  <label class="flex items-center cursor-pointer">
     <div class="relative w-[18px] h-[18px]">
       <input type="radio" :name="name" class="invisible peer" />
       <span
