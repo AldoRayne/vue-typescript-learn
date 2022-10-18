@@ -1,6 +1,6 @@
 <template>
-  <div class="table-wrapper">
-    <table>
+  <div class="w-full overflow-hidden">
+    <table class="border">
       <thead>
         <tr>
           <slot name="thead" />
@@ -12,14 +12,3 @@
     </table>
   </div>
 </template>
-
-<style lang="scss" scoped>
-.table-wrapper {
-  width: 100%;
-  overflow-x: auto;
-}
-
-table {
-  border: 1px solid #f4f4f4;
-}
-</style>

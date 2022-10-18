@@ -1,11 +1,11 @@
 <template>
-  <div class="sort">
-    <span class="sort__label">Сортировка:</span>
-    <div class="sort__inputs">
-      <div class="sort__input">
+  <div class="flex items-center">
+    <span>Сортировка:</span>
+    <div class="flex w-2/3">
+      <div class="sort-radio">
         <v-radio :name="name" icon="fa-solid fa-arrow-down-short-wide" />
       </div>
-      <div class="sort__input">
+      <div class="sort-radio">
         <v-radio :name="name" icon="fa-solid fa-arrow-up-short-wide" />
       </div>
     </div>
@@ -30,22 +30,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style lang="scss" scoped>
-.sort {
-  display: flex;
-  align-items: center;
-
-  &__inputs {
-    display: flex;
-    width: 66.66%;
-  }
-
-  &__input {
-    display: flex;
-    justify-content: center;
-    width: 50%;
-    flex-shrink: 0;
-  }
-}
-</style>

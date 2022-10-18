@@ -1,17 +1,20 @@
 <template>
-  <div class="combobox" v-click-outside="comboListHide">
-    <ul v-if="chosenItems.length" class="combobox__chosen">
+  <div class="relative" v-click-outside="comboListHide">
+    <ul v-if="chosenItems.length" class="flex flex-wrap">
       <li
         v-for="(item, index) in chosenItems"
         :key="index"
         @click="removeComboItem(item)"
-        class="combobox__chosen__item"
+        class="mr-[5px] mb-[5px] px-[10px] py-[5px] flex items-center text-white text-[12px] bg-light-blue border border-zinc-400 rounded-[4px] cursor-pointer"
       >
-        <font-awesome-icon icon="fa-solid fa-xmark" class="chosen-icon" />
+        <font-awesome-icon
+          icon="fa-solid fa-xmark"
+          class="mr-[5px] opacity-70"
+        />
         {{ item }}
       </li>
     </ul>
-    <div class="combobox__input-wrapper">
+    <div class="relative">
       <v-input
         ref="searchInput"
         :placeholder="placeholder"
@@ -26,13 +29,16 @@
         <font-awesome-icon icon="fa-solid fa-xmark" class="clear-icon" />
       </span>
     </div>
-    <ul v-show="comboListStatus" class="combobox__list">
+    <ul
+      v-show="comboListStatus"
+      class="absolute top-full left-0 w-full max-h-[190px] bg-white shadow-default overflow-y-auto z-10"
+    >
       <li
         v-for="(item, index) in comboList"
         ref="comboElements"
         :key="index"
         @click="choseComboItem(item)"
-        class="combobox__list__item"
+        class="px-[12px] py-[6px] text-left cursor-pointer hover:text-white hover:bg-light-blue"
       >
         {{ item }}
       </li>
@@ -87,8 +93,8 @@ export default defineComponent({
     function chosenItemsColoring(): void {
       comboElements.value.forEach((item) => {
         item.textContent && chosenItems.value.includes(item.textContent)
-          ? item.classList.add("added")
-          : item.classList.remove("added");
+          ? item.classList.add("text-white bg-slate-300")
+          : item.classList.remove("text-white bg-slate-300");
       });
     }
 
@@ -148,78 +154,18 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .combobox {
-  position: relative;
-
-  &__list {
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    max-height: 190px;
-    background: #fff;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.18);
-    list-style-type: none;
-    overflow-y: auto;
-    z-index: 1;
-
-    &__item {
-      padding: 6px 12px;
-      text-align: left;
-      cursor: pointer;
-
-      &:hover {
-        color: #fff;
-        background: #3c8dbc;
-      }
-
-      &.added:not(:hover) {
-        background: #ddd;
-      }
-    }
-  }
-
   &__input-wrapper {
-    position: relative;
-
     &:deep input {
       padding-right: 20px;
     }
   }
 
-  &__chosen {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    list-style-type: none;
-
-    &__item {
-      margin: 0 5px 5px 0;
-      padding: 5px 10px;
-      display: flex;
-      align-items: center;
-      color: #fff;
-      font-size: 12px;
-      background: #3c8dbc;
-      border: 1px solid #aaa;
-      border-radius: 4px;
-      cursor: pointer;
-    }
+  .clear-icon {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    cursor: pointer;
   }
-}
-
-.chosen-icon {
-  margin-right: 5px;
-  opacity: 0.7;
-}
-
-.clear-icon {
-  position: absolute;
-  top: 50%;
-  right: 5px;
-  transform: translateY(-50%);
-  cursor: pointer;
 }
 </style>
