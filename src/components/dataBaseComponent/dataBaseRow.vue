@@ -31,7 +31,10 @@
   <td class="p-[5px] border text-center whitespace-nowrap">
     <a :href="`tel:${rent.phone_number}`">{{ rent.phone_number }}</a>
   </td>
-  <td v-html="formattedDate" />
+  <td
+    v-html="formattedDate"
+    class="p-[5px] border text-center whitespace-nowrap"
+  />
   <td class="p-[5px] border text-center whitespace-nowrap"></td>
   <td class="p-[5px] border text-center whitespace-nowrap"></td>
   <td class="p-[5px] border text-center whitespace-nowrap"></td>

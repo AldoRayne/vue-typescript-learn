@@ -17,6 +17,7 @@ module.exports = {
       },
       transitionProperty: {
         width: "width",
+        marginLeft: "margin-left",
       },
     },
   },
