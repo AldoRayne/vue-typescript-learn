@@ -2,10 +2,10 @@
   <div class="flex items-center">
     <span>Сортировка:</span>
     <div class="flex w-2/3">
-      <div class="sort-radio">
+      <div class="flex justify-center w-1/2 shrink-0">
         <v-radio :name="name" icon="fa-solid fa-arrow-down-short-wide" />
       </div>
-      <div class="sort-radio">
+      <div class="flex justify-center w-1/2 shrink-0">
         <v-radio :name="name" icon="fa-solid fa-arrow-up-short-wide" />
       </div>
     </div>

@@ -1,22 +1,31 @@
 <template>
-  <header>
-    <div :class="{ collapsed }" class="logo">
+  <header
+    class="flex items-center fixed top-0 left-0 w-full h-[50px] bg-cinnabar box-border z-10"
+  >
+    <div
+      :class="collapsed ? 'w-[49px] delay-500' : 'w-[230px]'"
+      class="relative p-x-[15px] text-white text-[20px] box-border transition-width duration-500 ease-out"
+    >
       <Transition name="fade">
         <router-link
           v-if="!collapsed"
           :to="{ name: 'Home' }"
-          class="logo__text"
+          class="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] text-white whitespace-nowrap"
         >
-          <span class="bold">База&nbsp;</span>
-          <span class="thin">Лидер</span>
+          <span class="font-bold">База&nbsp;</span>
+          <span class="font-thin uppercase">Лидер</span>
         </router-link>
-        <router-link v-else :to="{ name: 'Home' }" class="logo__text">
-          <span class="bold">Б</span>
-          <span class="thin">Л</span>
+        <router-link
+          v-else
+          :to="{ name: 'Home' }"
+          class="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] text-white whitespace-nowrap"
+        >
+          <span class="font-bold">Б</span>
+          <span class="font-thin uppercase">Л</span>
         </router-link>
       </Transition>
     </div>
-    <button @click="navigationTogglerClick" class="expand">
+    <button @click="navigationTogglerClick" class="w-[42px] h-full text-white">
       <font-awesome-icon icon="fa-solid fa-bars" />
     </button>
   </header>
@@ -44,78 +53,17 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-header {
-  display: flex;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 50px;
-  background: #dd4b39;
-  box-sizing: border-box;
-  z-index: 1;
-}
-
-.logo {
-  position: relative;
-  padding: 0 15px;
-  width: 230px;
-  color: #fff;
-  font-size: 20px;
-  box-sizing: border-box;
-  transition: width 0.5s ease-out;
-
-  &.collapsed {
-    width: 49px;
-    transition-delay: 0.5s;
-  }
-
-  &__text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-}
-
-.bold {
-  font-family: "Inter Bold", sans-serif;
-}
-
-.thin {
-  font-family: "Inter Thin", sans-serif;
-  text-transform: uppercase;
-}
-
-.expand {
-  padding: 0;
-  width: 42px;
-  height: 100%;
-  color: #fff;
-  background: none;
-  border: none;
-  cursor: pointer;
-
-  &:hover {
-    background: #d73925;
-  }
-}
-
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s ease;
+  @apply transition-opacity ease-out duration-500;
 }
 
 .fade-enter-from,
 .fade-leave-to {
-  opacity: 0;
+  @apply opacity-0;
 }
 
 .fade-enter-active {
-  transition-delay: 0.5s;
+  @apply delay-500;
 }
 </style>

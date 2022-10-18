@@ -20,7 +20,7 @@
         :placeholder="placeholder"
         v-model="inputValue"
         @click="comboListShow"
-        class="text-input border-0"
+        class="p-[5px] w-full border-light-blue box-border focus-visible:outline-0 border-0"
       />
       <span
         v-if="chosenItems.length"

@@ -2,50 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  th {
-    @apply p-[5px] border text-center;
-  }
-
-  td {
-    @apply p-[5px] border text-center whitespace-nowrap;
-  }
+@font-face {
+  font-family: "Inter Thin";
+  src: url("./fonts/Inter-Thin.ttf");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
 }
 
-@layer components {
-  .td-wrap {
-    @apply p-[5px] border text-left whitespace-normal;
-  }
+@font-face {
+  font-family: "Inter Regular";
+  src: url("./fonts/Inter-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
-  .btn {
-    @apply px-[12px] py-[6px] block w-max text-white no-underline text-[14px] bg-corious-blue;
-  }
+@font-face {
+  font-family: "Inter Bold";
+  src: url("./fonts/Inter-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
-  .text-input {
-    @apply p-[5px] w-full border border-light-blue box-border focus-visible:outline-0;
-  }
-
-  .sort-radio {
-    @apply flex justify-center w-1/2 shrink-0;
-  }
-
-  .menu-item {
-    @apply pr-[5px] pl-[15px] py-[12px] cursor-pointer hover:bg-zinc-100;
-  }
-
-  .menu-item.expanded {
-    @apply bg-zinc-100;
-  }
-
-  .menu-item-title {
-    @apply flex items-center min-h-[20px];
-  }
-
-  .menu-item-name {
-    @apply whitespace-nowrap;
-  }
-
-  .menu-item-icon {
-    @apply mr-[5px] w-[20px] text-[14px] shrink-0;
+@layer base {
+  body {
+    @apply font-regular;
   }
 }

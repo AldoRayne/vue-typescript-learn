@@ -4,7 +4,6 @@ import store from "./store";
 import router from "./router";
 
 import "@/style/tailwind.css";
-import "@/style/global.scss";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {

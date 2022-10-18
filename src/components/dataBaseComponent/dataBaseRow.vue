@@ -1,41 +1,41 @@
 <template>
-  <td>
+  <td class="p-[5px] border text-center whitespace-nowrap">
     {{ realIndex }}
   </td>
-  <td class="td-wrap">
+  <td class="p-[5px] border text-left whitespace-normal">
     <div>
       <b>{{ rent.district }}</b>
     </div>
     <div>{{ rent.city }}</div>
     <div v-if="rent.street">{{ rent.street }}, {{ rent.house_number }}</div>
   </td>
-  <td>
+  <td class="p-[5px] border text-center whitespace-nowrap">
     {{ rent.layout }}
   </td>
-  <td>
+  <td class="p-[5px] border text-center whitespace-nowrap">
     {{ rent.rooms }}
   </td>
-  <td>
+  <td class="p-[5px] border text-center whitespace-nowrap">
     {{ formattedFloors }}
   </td>
-  <td>
+  <td class="p-[5px] border text-center whitespace-nowrap">
     {{ formattedLivingSpace }}
   </td>
-  <td>
+  <td class="p-[5px] border text-center whitespace-nowrap">
     {{ formattedArea }}
   </td>
-  <td>
+  <td class="p-[5px] border text-center whitespace-nowrap">
     {{ rent.price }}
     <template v-if="isPriceExist">{{ rent.currency }}</template>
   </td>
-  <td>
+  <td class="p-[5px] border text-center whitespace-nowrap">
     <a :href="`tel:${rent.phone_number}`">{{ rent.phone_number }}</a>
   </td>
   <td v-html="formattedDate" />
-  <td></td>
-  <td></td>
-  <td></td>
-  <td></td>
+  <td class="p-[5px] border text-center whitespace-nowrap"></td>
+  <td class="p-[5px] border text-center whitespace-nowrap"></td>
+  <td class="p-[5px] border text-center whitespace-nowrap"></td>
+  <td class="p-[5px] border text-center whitespace-nowrap"></td>
 </template>
 
 <script lang="ts">

@@ -2,8 +2,8 @@
   <aside
     @mouseenter="navigationToggle(true)"
     @mouseleave="navigationToggle(false)"
-    :class="{ 'w-[49px] delay-500': collapsed }"
-    class="pt-[15px] fixed top-[50px] left-0 w-[230px] h-[calc(100%_-_50px)] bg-zinc-50 box-border overflow-y-auto transition-width ease-out duration-500"
+    :class="collapsed ? 'w-[49px] delay-500' : 'w-[230px]'"
+    class="pt-[15px] fixed top-[50px] left-0 h-[calc(100%_-_50px)] bg-zinc-50 box-border overflow-y-auto transition-width ease-out duration-500"
   >
     <Transition name="slide-fade">
       <section>
@@ -11,56 +11,71 @@
           Меню
         </span>
         <ul>
-          <li class="menu-item">
-            <router-link to="/" class="menu-item-title">
+          <li
+            class="pr-[5px] pl-[15px] py-[12px] cursor-pointer hover:bg-zinc-100"
+          >
+            <router-link to="/" class="flex items-center min-h-[20px]">
               <font-awesome-icon
                 icon="fa-solid fa-house"
-                class="menu-item-icon"
+                class="mr-[5px] w-[20px] text-[14px] shrink-0"
               />
               <Transition name="fade">
-                <span v-show="!collapsed" class="menu-item-name">
+                <span v-show="!collapsed" class="whitespace-nowrap">
                   Новости
                 </span>
               </Transition>
             </router-link>
           </li>
-          <li class="menu-item">
-            <span class="menu-item-title">
+          <li
+            class="pr-[5px] pl-[15px] py-[12px] cursor-pointer hover:bg-zinc-100"
+          >
+            <span class="flex items-center min-h-[20px]">
               <font-awesome-icon
                 icon="fa-solid fa-user"
-                class="menu-item-icon"
+                class="mr-[5px] w-[20px] text-[14px] shrink-0"
               />
               <Transition name="fade">
-                <span v-show="!collapsed" class="menu-item-name">
+                <span v-show="!collapsed" class="whitespace-nowrap">
                   Мой профиль
                 </span>
               </Transition>
             </span>
           </li>
           <li
-            :class="{ expanded: collapsePanel?.isExpanded }"
-            class="menu-item"
+            :class="{ 'bg-zinc-100': collapsePanel?.isExpanded }"
+            class="pr-[5px] pl-[15px] py-[12px] cursor-pointer hover:bg-zinc-100"
           >
-            <vue-collapsible-panel ref="collapsePanel" :expanded="false">
+            <vue-collapsible-panel
+              ref="collapsePanel"
+              :expanded="false"
+              :class="{ collapsed }"
+              class="collapsePanel"
+            >
               <template #title>
-                <span class="menu-item-title">
+                <span class="flex items-center min-h-[20px]">
                   <font-awesome-icon
                     icon="fa-solid fa-database"
-                    class="menu-item-icon"
+                    class="mr-[5px] w-[20px] text-[14px] shrink-0"
                   />
                   <Transition name="fade">
-                    <span v-show="!collapsed" class="menu-item-name">
+                    <span v-show="!collapsed" class="whitespace-nowrap">
                       База
                     </span>
                   </Transition>
                 </span>
               </template>
               <template #content>
-                <ul class="sub-menu">
-                  <router-link :to="{ name: 'Rent' }" class="sub-menu__item">
+                <ul>
+                  <router-link
+                    :to="{ name: 'Rent' }"
+                    class="submenu-item py-[5px] pr-[5px] pl-[15px] block text-stone-600 text-[14px] hover:text-black"
+                  >
                     Аренда
                   </router-link>
-                  <router-link :to="{ name: 'Sale' }" class="sub-menu__item">
+                  <router-link
+                    :to="{ name: 'Sale' }"
+                    class="submenu-item py-[5px] pr-[5px] pl-[15px] block text-stone-600 text-[14px] hover:text-black"
+                  >
                     Продажа
                   </router-link>
                 </ul>
@@ -118,74 +133,49 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-aside {
-  &:deep {
-    .vcp__header,
-    .vcp__body-content {
-      padding: 0;
-    }
-
-    .vcp__header-icon {
-      transition: opacity 0.5s ease-out;
-    }
+.collapsePanel {
+  &:deep .vcp__header {
+    @apply p-0;
   }
 
-  &.collapsed {
-    &:deep {
-      .vcp__header-icon {
-        opacity: 0;
-        transition-delay: 0;
-      }
-
-      & + .content {
-        margin-left: 49px;
-        transition-delay: 0.5s;
-      }
+  &.collapsed:deep {
+    .vcp__header-icon {
+      @apply opacity-0 delay-[0];
     }
+
+    // & + .content {
+    //   margin-left: 49px;
+    //   transition-delay: 0.5s;
+    // }
   }
 }
 
-.sub-menu {
-  padding-left: 0;
-  list-style-type: none;
-
-  &__item {
-    padding: 5px 5px 5px 15px;
-    display: block;
-    color: #777;
-    font-size: 14px;
-    text-decoration: none;
-
-    &.router-link-active,
-    &:hover {
-      color: #000;
-    }
-  }
+.submenu-item.router-link-active {
+  @apply text-black;
 }
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s ease;
+  @apply transition-opacity ease-out duration-500;
 }
 
 .fade-enter-from,
 .fade-leave-to {
-  opacity: 0;
+  @apply opacity-0;
 }
 
 .slide-fade-enter-active,
 .slide-fade-leave-active {
-  transition: all 0.5s ease-out;
+  @apply transition-all ease-out duration-500;
 }
 
 .slide-fade-enter-from,
 .slide-fade-leave-to {
-  transform: translateX(-20px);
-  opacity: 0;
+  @apply opacity-0 translate-x-[-20px];
 }
 
 .fade-enter-active,
 .slide-fade-enter-active {
-  transition-delay: 0.5s;
+  @apply delay-500;
 }
 </style>
