@@ -14,7 +14,7 @@
           <li
             class="pr-[5px] pl-[15px] py-[12px] cursor-pointer hover:bg-zinc-100"
           >
-            <router-link to="/" class="flex items-center min-h-[20px]">
+            <router-link to="/" class="flex items-center h-[20px]">
               <font-awesome-icon
                 icon="fa-solid fa-house"
                 class="mr-[5px] w-[20px] text-[14px] shrink-0"
@@ -29,7 +29,7 @@
           <li
             class="pr-[5px] pl-[15px] py-[12px] cursor-pointer hover:bg-zinc-100"
           >
-            <span class="flex items-center min-h-[20px]">
+            <span class="flex items-center h-[20px]">
               <font-awesome-icon
                 icon="fa-solid fa-user"
                 class="mr-[5px] w-[20px] text-[14px] shrink-0"
@@ -52,7 +52,7 @@
               class="collapsePanel"
             >
               <template #title>
-                <span class="flex items-center min-h-[20px]">
+                <span class="flex items-center h-[20px]">
                   <font-awesome-icon
                     icon="fa-solid fa-database"
                     class="mr-[5px] w-[20px] text-[14px] shrink-0"
@@ -68,12 +68,14 @@
                 <ul>
                   <router-link
                     :to="{ name: 'Rent' }"
+                    active-class="text-black"
                     class="submenu-item py-[5px] pr-[5px] pl-[15px] block text-stone-600 text-[14px] hover:text-black"
                   >
                     Аренда
                   </router-link>
                   <router-link
                     :to="{ name: 'Sale' }"
+                    active-class="text-black"
                     class="submenu-item py-[5px] pr-[5px] pl-[15px] block text-stone-600 text-[14px] hover:text-black"
                   >
                     Продажа
@@ -135,42 +137,14 @@ export default defineComponent({
 <style lang="scss" scoped>
 .collapsePanel {
   &:deep .vcp__header {
-    @apply p-0;
+    padding: 0;
   }
 
   &.collapsed:deep {
     .vcp__header-icon {
-      @apply opacity-0 delay-[0];
+      opacity: 0;
+      transition-delay: 500ms;
     }
   }
-}
-
-.submenu-item.router-link-active {
-  @apply text-black;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  @apply transition-opacity ease-out duration-500;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  @apply opacity-0;
-}
-
-.slide-fade-enter-active,
-.slide-fade-leave-active {
-  @apply transition-all ease-out duration-500;
-}
-
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-  @apply opacity-0 translate-x-[-20px];
-}
-
-.fade-enter-active,
-.slide-fade-enter-active {
-  @apply delay-500;
 }
 </style>

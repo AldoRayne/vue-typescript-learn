@@ -51,19 +51,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style lang="scss" scoped>
-.fade-enter-active,
-.fade-leave-active {
-  @apply transition-opacity ease-out duration-500;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  @apply opacity-0;
-}
-
-.fade-enter-active {
-  @apply delay-500;
-}
-</style>

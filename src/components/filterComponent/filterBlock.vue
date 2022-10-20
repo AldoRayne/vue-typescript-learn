@@ -1,5 +1,5 @@
 <template>
-  <div class="filter w-[300px]">
+  <div class="w-[300px]">
     <slot />
     <div class="mt-[15px] flex justify-between">
       <button

@@ -1,3 +1,5 @@
+const plugin = require("tailwindcss/plugin");
+
 module.exports = {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
@@ -21,4 +23,34 @@ module.exports = {
       },
     },
   },
+  plugins: [
+    plugin(function ({ addComponents }) {
+      const fadeTransition = {
+        ".fade-enter-active, .fade-leave-active": {
+          transition: "opacity 500ms ease-out",
+        },
+        ".fade-enter-from, .fade-leave-to": {
+          opacity: "0",
+        },
+        ".fade-enter-active": {
+          transitionDelay: "500ms",
+        },
+      };
+
+      const slideFadeTransition = {
+        ".slide-fade-enter-active, .slide-fade-leave-active": {
+          transition: "all 500ms ease-out",
+        },
+        ".slide-fade-enter-from, .slide-fade-leave-to ": {
+          transform: "translateX(-20px)",
+          opacity: "0",
+        },
+        ".slide-fade-enter-active": {
+          transitionDelay: "500ms",
+        },
+      };
+
+      addComponents(fadeTransition, slideFadeTransition);
+    }),
+  ],
 };
