@@ -68,15 +68,15 @@
                 <ul>
                   <router-link
                     :to="{ name: 'Rent' }"
-                    active-class="text-black"
-                    class="submenu-item py-[5px] pr-[5px] pl-[15px] block text-stone-600 text-[14px] hover:text-black"
+                    active-class="!text-black"
+                    class="py-[5px] pr-[5px] pl-[15px] block text-stone-600 text-[14px] hover:text-black"
                   >
                     Аренда
                   </router-link>
                   <router-link
                     :to="{ name: 'Sale' }"
-                    active-class="text-black"
-                    class="submenu-item py-[5px] pr-[5px] pl-[15px] block text-stone-600 text-[14px] hover:text-black"
+                    active-class="!text-black"
+                    class="py-[5px] pr-[5px] pl-[15px] block text-stone-600 text-[14px] hover:text-black"
                   >
                     Продажа
                   </router-link>
