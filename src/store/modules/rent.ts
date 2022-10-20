@@ -30,10 +30,10 @@ export default {
     async getRents({ commit }: { commit: Commit }, payload: PayloadData) {
       try {
         const { data } = await axios.get<Rents>(
-          `https://baza-lider.info/api/v1/?get=estate&format=json&type=${payload.type}&region=1,2&access_token=${process.env.VUE_APP_TOKEN}`
+          `https://baza-lider.info/api/v1/?get=estate&format=json&type=${payload.dispatchType}&region=1,2&access_token=${process.env.VUE_APP_TOKEN}`
         );
 
-        commit(`${payload.name}`, data);
+        commit(`${payload.dispatchName}`, data);
       } catch (error) {
         console.log(error);
       }

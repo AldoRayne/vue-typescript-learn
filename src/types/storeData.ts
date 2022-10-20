@@ -18,12 +18,10 @@ type dispatchNameKeys = keyof AllowedDispatchNames;
 type dispatchTypeKeys = keyof AllowedDispatchTypes;
 
 export interface PayloadData {
-  name: dispatchNameKeys;
-  type: dispatchTypeKeys;
-}
-
-export interface StoreData {
-  getterName: getterNameKeys;
   dispatchName: dispatchNameKeys;
   dispatchType: dispatchTypeKeys;
+}
+
+export interface StoreData extends PayloadData {
+  getterName: getterNameKeys;
 }

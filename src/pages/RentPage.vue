@@ -50,8 +50,8 @@ export default defineComponent({
     onMounted(async () => {
       if (isEmptyObject(rents.value)) {
         const payload: PayloadData = {
-          name: storeData.value.dispatchName,
-          type: storeData.value.dispatchType,
+          dispatchName: storeData.value.dispatchName,
+          dispatchType: storeData.value.dispatchType,
         };
 
         await store.dispatch("getRents", payload);
